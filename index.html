@@ -1,11 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>M Taha Islam</title>
-</head>
-<body>
-  <h1>Hello, I am Muhammad Taha Islam 👋</h1>
-  <p>This is my first GitHub Pages site.</p>
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Muhammad Taha Islam — Developer Portfolio</title>
+    <meta name="title" content="Muhammad Taha Islam — Developer Portfolio" />
+    <meta name="description" content="Full‑stack developer building clean, reliable web apps with TypeScript, React, and Node.js." />
+    <meta name="theme-color" content="#2563eb" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Muhammad Taha Islam — Developer Portfolio" />
+    <meta property="og:description" content="Full‑stack developer building clean, reliable web apps with TypeScript, React, and Node.js." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:site_name" content="M Taha Islam" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Muhammad Taha Islam — Developer Portfolio" />
+    <meta name="twitter:description" content="Full‑stack developer building clean, reliable web apps with TypeScript, React, and Node.js." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" />
+
+    <!-- Canonical (update when you get the .is-a.dev domain) -->
+    <link rel="canonical" href="https://yourname.is-a.dev/" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Minimal base styles (light + dark). -->
+    <style>
+      :root {
+        --bg: #ffffff;
+        --surface: #f6f7f9;
+        --text: #0f172a; /* slate-900 */
+        --text-muted: #475569; /* slate-600 */
+        --brand: #2563eb; /* blue-600 */
+        --brand-700: #1d4ed8;
+        --ring: rgba(37, 99, 235, 0.25);
+        --border: #e5e7eb;
+        --card-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --radius-sm: 10px;
+        --container: 1120px;
+      }
+      :root[data-theme="dark"] {
+        --bg: #0b1220;
+        --surface: #0f172a;
+        --text: #e5e7eb;
+        --text-muted: #94a3b8;
+        --brand: #60a5fa;
+        --brand-700: #3b82f6;
+        --border: #1f2940;
+        --card-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 85% -10%, #e8f0ff 0%, transparent 60%),
+                    radial-gradient(900px 600px at -10% 0%, #f7faff 0%, transparent 55%),
+                    var(--bg);
+        line-height: 1.6;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      button { font: inherit; }
+
+      .container { max-width: var(--container); margin-inline: auto; padding-inline: 24px; }
+
+      /* Header */
+      header.site-header {
+        position: sticky; top: 0; backdrop-filter: saturate(180%) blur(10px);
+        background: color-mix(in oklab, var(--bg) 70%, transparent);
+        border-bottom: 1px solid var(--border);
+        z-index: 50;
+      }
+      .nav {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 12px; padding: 14px 0;
+      }
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.2px; }
+      .brand-mark {
+        width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
+        background: linear-gradient(135deg, var(--brand), var(--brand-700)); color: white;
+        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+        font-weight: 800;
+      }
+      .nav-links { display: flex; gap: 18px; align-items: center; }
+      .nav-links a { color: var(--text-muted); font-weight: 500; }
+      .nav-links a:hover { color: var(--text); }
+      .cta {
+        background: var(--text); color: white; padding: 10px 14px; border-radius: 10px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+      }
+
+      /* Hero */
+      .hero { padding: 64px 0 24px; }
+      .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--brand);
+        background: #eef2ff; border: 1px solid #dbeafe; padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; }
+      h1.title { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin: 14px 0 12px; }
+      p.subtitle { font-size: clamp(16px, 2.2vw, 18px); color: var(--text-muted); margin: 0 0 20px; }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+      .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-700)); color: white; border: none; box-shadow: 0 10px 24px rgba(37,99,235,0.25); }
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(15,23,42,0.06); }
+
+      .card {
+        background: white; border: 1px solid var(--border); border-radius: var(--radius-lg);
+        box-shadow: var(--card-shadow);
+      }
+      .portrait {
+        position: relative; aspect-ratio: 1/1; border-radius: var(--radius-lg); overflow: hidden;
+        background: linear-gradient(180deg, #e0e7ff, #fff);
+      }
+      .portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Sections */
+      section { padding: 44px 0; }
+      .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px; gap: 16px; }
+      .section-title { font-size: 22px; margin: 0; }
+      .section-desc { margin: 0; color: var(--text-muted); font-size: 14px; }
+
+      /* About */
+      .about .card { padding: 22px; }
+
+      /* Skills */
+      .skills-grid {
+        display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px;
+      }
+      .skill { display: flex; align-items: center; gap: 10px; padding: 12px 12px; border: 1px solid var(--border); border-radius: var(--radius-md); background: white; }
+      .skill b { font-weight: 600; }
+      .skill small { color: var(--text-muted); }
+
+      /* Projects */
+      .projects-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+      .project-card { overflow: hidden; }
+      .project-media { aspect-ratio: 16/10; background: color-mix(in oklab, var(--brand) 12%, transparent); border-bottom: 1px solid var(--border); }
+      .project-body { padding: 16px; }
+      .project-body h3 { margin: 0 0 8px; font-size: 18px; }
+      .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+      .tag { font-size: 12px; color: var(--brand); background: #eff6ff; border: 1px solid #dbeafe; padding: 4px 8px; border-radius: 999px; }
+
+      /* Contact */
+      .contact .card { padding: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+      .contact .socials { display: flex; gap: 10px; flex-wrap: wrap; }
+      .social-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: white; color: var(--text); }
+      .social-btn:hover { border-color: #cbd5e1; }
+
+      footer { padding: 28px 0 48px; color: var(--text-muted); }
+
+      /* Responsive */
+      @media (max-width: 1000px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .contact .card { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 640px) {
+        .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .projects-grid { grid-template-columns: 1fr; }
+        .nav-links { display: none; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header / Nav -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">MTI</div>
+            <span>Muhammad Taha Islam</span>
+          </div>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact" class="cta">Contact</a>
+          </div>
+          <button id="theme-toggle" class="btn" aria-label="Toggle dark mode">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <span class="eyebrow">Full‑Stack Developer</span>
+              <h1 class="title">Building clean, reliable web apps — end to end</h1>
+              <p class="subtitle">
+                I’m <strong>Muhammad Taha Islam</strong>, a software developer who enjoys turning ideas
+                into delightful products. I focus on robust architectures, thoughtful UI, and DX.
+              </p>
+              <div class="hero-actions">
+                <a class="btn primary" href="#projects">View Projects</a>
+                <a class="btn" href="#contact">Get in touch</a>
+                <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+            <div>
+              <div class="portrait card" aria-label="Portrait placeholder">
+                <img alt="Portrait placeholder" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">About</h2>
+            <p class="section-desc">A quick snapshot of who I am.</p>
+          </div>
+          <div class="card">
+            <p>
+              I craft modern, accessible web applications with attention to detail and long‑term
+              maintainability. My recent focus areas include TypeScript, React/Next.js, Node.js,
+              and performance engineering. I enjoy collaborating, shipping thoughtfully, and
+              improving developer experience along the way.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="skills">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-desc">A selection of technologies I work with.</p>
+          </div>
+          <div class="skills-grid">
+            <div class="skill"><b>TypeScript</b> <small>TS-first engineering</small></div>
+            <div class="skill"><b>React</b> <small>Hooks, state, patterns</small></div>
+            <div class="skill"><b>Next.js</b> <small>App Router, SSR/SSG</small></div>
+            <div class="skill"><b>Node.js</b> <small>APIs, tooling</small></div>
+            <div class="skill"><b>Tailwind/CSS</b> <small>Design systems</small></div>
+            <div class="skill"><b>PostgreSQL</b> <small>Schema design</small></div>
+            <div class="skill"><b>Prisma/ORMs</b> <small>Data access</small></div>
+            <div class="skill"><b>Docker</b> <small>Dev/CI images</small></div>
+            <div class="skill"><b>Testing</b> <small>Jest/Playwright</small></div>
+            <div class="skill"><b>Perf</b> <small>Core Web Vitals</small></div>
+            <div class="skill"><b>CI/CD</b> <small>GitHub Actions</small></div>
+            <div class="skill"><b>REST/GraphQL</b> <small>API design</small></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-desc">Practical work that highlights my approach.</p>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card card">
+              <div class="project-media">
+                <img alt="Project dashboard UI" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" />
+              </div>
+              <div class="project-body">
+                <h3>Analytics Dashboard</h3>
+                <p>A performant dashboard with caching, pagination, and rich charts.</p>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">PostgreSQL</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card card">
+              <div class="project-media">
+                <img alt="E‑commerce storefront" src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1200&auto=format&fit=crop" />
+              </div>
+              <div class="project-body">
+                <h3>Storefront</h3>
+                <p>End‑to‑end e‑commerce app with auth, payments, and admin tools.</p>
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">Stripe</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card card">
+              <div class="project-media">
+                <img alt="Open‑source CLI tool" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" />
+              </div>
+              <div class="project-body">
+                <h3>DX CLI</h3>
+                <p>Developer tooling to scaffold projects and automate releases.</p>
+                <div class="project-tags">
+                  <span class="tag">Node.js</span>
+                  <span class="tag">CLI</span>
+                  <span class="tag">Open Source</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-desc">Let’s build something great together.</p>
+          </div>
+          <div class="card">
+            <div>
+              <h3 style="margin-top:0">Say hello</h3>
+              <p>
+                Prefer email? Reach me at
+                <a href="mailto:you@example.com" style="color:var(--brand); font-weight:600">you@example.com</a>.
+                I’m open to roles, freelance, and collaborations.
+              </p>
+              <div class="socials">
+                <a class="social-btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="social-btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="social-btn" href="https://x.com/" target="_blank" rel="noreferrer">X</a>
+                <a class="social-btn" href="#" download>Download Résumé</a>
+              </div>
+            </div>
+            <div>
+              <h3 style="margin-top:0">Quick intro</h3>
+              <p>
+                I care about maintainable code, great UX, and measurable outcomes. I value
+                clear communication, constructive feedback, and documentation.
+              </p>
+              <ul>
+                <li>Based in: Remote‑friendly</li>
+                <li>Interests: OSS, design systems, perf</li>
+                <li>Currently: Exploring new opportunities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+          <small>© <span id="year"></span> Muhammad Taha Islam. All rights reserved.</small>
+          <small>Built with care and vanilla HTML/CSS.</small>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Structured data (JSON-LD)
+      const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Muhammad Taha Islam',
+        url: document.querySelector('link[rel=canonical]')?.href || window.location.href,
+        jobTitle: 'Full-Stack Developer',
+        sameAs: [
+          'https://github.com/',
+          'https://www.linkedin.com/',
+          'https://x.com/'
+        ],
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Independent'
+        }
+      };
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(jsonLd);
+      document.head.appendChild(script);
+
+      // Theme handling
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('theme');
+      const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', initialTheme);
+      const toggle = document.getElementById('theme-toggle');
+      function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      }
+      toggle?.addEventListener('click', toggleTheme);
+    </script>
+  </body>
+  </html>
